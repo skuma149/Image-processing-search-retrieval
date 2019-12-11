@@ -41,15 +41,16 @@ class DataPreProcessor:
 
         charas = ["Labelled", "Unlabelled"]
         # sets = ["Set1", "Set2", "Set3", "Set4"]
-        sets = ["Set1", "Set2", "Set3"]
-        number_of_clusters = ['250', '300']
+        sets = ["Set1", "Set2"]
+        number_of_clusters = ['200', '250', '300']
         path = []
         feature_models = []
         for chara_ in charas:
             for set_ in sets:
+                path.append(self.CLASSIFICATION_IMAGES_PATH + "/" + chara_ + "/" + set_)
+                feature_models.append("histogram_of_gradients" + "_" + chara_ + "_" + set_)
                 for cluster_count in number_of_clusters:
                     path.append(self.CLASSIFICATION_IMAGES_PATH + "/" + chara_ + "/" + set_)
-                    # feature_models.append("histogram_of_gradients" + "_" + chara_ + "_" + set_)
                     # feature_models.append("local_binary_pattern" + "_" + chara_ + "_" + set_)
                     feature_models.append("sift" + "_" + chara_ + "_" + set_ + "_" + cluster_count)
 
